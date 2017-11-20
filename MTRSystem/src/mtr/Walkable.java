@@ -7,13 +7,14 @@ package mtr;
  * REVISIONS
  * 1.0 - Create class and constructor
  */
-public class Subway extends Route {
+public class Walkable extends Route {
 
 	/**
 	 * @param name
 	 */
-	public Subway(String name) {
+	public Walkable(String name) {
 		super(name);
+		
 	}
 
 }
