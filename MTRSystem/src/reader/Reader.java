@@ -7,8 +7,11 @@ import java.io.IOException;
 
 /**
  * Class to parse CSV file given in constructor
- * @author ollie
+ * @author Ollie
  * @version 1.0
+ * 
+ * REVISIONS
+ * 
  */
 public class Reader {
 	

@@ -17,7 +17,6 @@ public class Station extends Stop {
 	/**
 	 * 
 	 * @param name
-	 * @param isTermini
 	 */
 	public Station(String name) {
 		super(name);
