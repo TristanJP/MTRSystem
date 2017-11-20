@@ -23,12 +23,12 @@ public class Console {
 		while (run)
 		{
 			//Array of options
-			String[] options = {"exit", "listLine", "listCon", "listAll"};
+			String[] options = {"listLine", "listCon", "listAll", "exit"};
 			//list all options
 			System.out.println("Options:");
 			for (int i = 0; i < options.length; i++)
 			{
-				System.out.println(" - " + options[i] + ".");
+				System.out.println(" - " + options[i]);
 			}
 			//read user input
 			String chosenOption = keyboard.nextLine();
