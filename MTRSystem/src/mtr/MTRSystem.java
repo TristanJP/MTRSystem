@@ -13,7 +13,7 @@ public class MTRSystem {
 	//add lines and stations
 	
 	
-	//main
+	//Main function
 	public static void main(String[] args) {
 		
 		//create console
