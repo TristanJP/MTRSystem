@@ -4,39 +4,22 @@ import java.util.ArrayList;
 
 /**
  * Class holding details about one station on a line, as set by the Reader
- * @author ollie
+ * @author Ollie
  * @version 1.1
+ * 
+ * REVISIONS
+ * 1.0 - Created class, added constructor and isTermini field
+ * 1.1 - Moved isTermini to different class, changed this to extend Stop
  */
 
-public class Station extends Component {
-	
-	/**
-	 * 
-	 */
-	private boolean isTermini;
-	
-	/**
-	 * 
-	 */
-	//private ArrayList<Line> lines;
+public class Station extends Stop {
 	
 	/**
 	 * 
 	 * @param name
 	 * @param isTermini
 	 */
-	public Station(String name, boolean isTermini) {
+	public Station(String name) {
 		super(name);
-		this.isTermini = isTermini;
 	}
-	
-	/**
-	 * 
-	 * @param line
-	 */
-	/*
-	public void addLine(Line line) {
-		this.lines.add(line);
-	}
-	*/
 }

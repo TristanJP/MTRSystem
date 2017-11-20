@@ -7,5 +7,9 @@ package mtr;
  */
 
 public class MTRSystem {
+	
+	//create reader
+	//create lists of lines or stations
+	//add lines and stations
 
 }
