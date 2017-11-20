@@ -3,7 +3,7 @@ package mtr;
 import java.util.ArrayList;
 
 /**
- * Class representing 
+ * Class representing paths between stations
  * @author Ollie
  * @version 1.0
  * 
