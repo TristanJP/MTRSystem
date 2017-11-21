@@ -21,7 +21,7 @@ public class Node<T> {
 	}
 	
 	public Node<T> getPrevious() {
-		return tail;
+		return (tail == null)?null:tail;
 	}
 	
 	public void setPrevious(Node<T> newTail) {
@@ -30,7 +30,7 @@ public class Node<T> {
 	}
 	
 	public Node<T> getNext() {
-		return head;
+		return (head == null)?null:head;
 	}
 	
 	public void setNext(Node<T> newHead) {
