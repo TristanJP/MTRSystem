@@ -35,6 +35,7 @@ public abstract class DoublyLinkedList<T> {
 		newElement.setPrevious(prevElement);
 		nextElement.setPrevious(newElement);
 		newElement.setNext(nextElement);
+		count++;
 	}
 	
 	public void removeElement(Node<T> element) {

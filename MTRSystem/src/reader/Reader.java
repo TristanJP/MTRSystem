@@ -16,6 +16,8 @@ import java.io.IOException;
 public class Reader {
 	
 	private String path = "";
+
+	private String[] readLine;
 	
 	/**
 	 * 
@@ -26,6 +28,12 @@ public class Reader {
 	}
 	
 	public void read() {
-		
+		try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+			String line;
+			while ((line = br.readLine()) != null) {
+				readLine = line.split(",");
+
+			}
+		}
 	}
 }
