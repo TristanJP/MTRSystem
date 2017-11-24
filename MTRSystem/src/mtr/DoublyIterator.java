@@ -4,10 +4,11 @@ import java.util.Iterator;
 
 /**
  * @author Ollie
- * @version 1.0
+ * @version 1.1
  * 
  * REVISIONS
  * 1.0 - Create class and constructor
+ * 1.1 - Add next, previous, hasNext, hasPrevious methods
  */
 public class DoublyIterator<T> implements Iterator {
 	
