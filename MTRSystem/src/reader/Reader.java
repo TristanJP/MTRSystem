@@ -28,11 +28,17 @@ public class Reader {
 	}
 	
 	public void read() {
-		try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-			String line;
-			while ((line = br.readLine()) != null) {
-				readLine = line.split(",");
+		if (!path.equals("")) {
+			try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+				String line;
+				while ((line = br.readLine()) != null) {
+					readLine = line.split(",");
 
+				}
+			} catch (FileNotFoundException ex) {
+				System.out.println("File not found");
+			} catch (IOException ex) {
+				System.out.println("IOException");
 			}
 		}
 	}
