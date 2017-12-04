@@ -77,7 +77,7 @@ public class Controller {
 	 * @return	a String representation of the name of the required line(s)
 	 */
 	String listAllDirectlyConnectedLines(String line) {
-		return "3";
+		return "3"; 
 		
 	}
 	
