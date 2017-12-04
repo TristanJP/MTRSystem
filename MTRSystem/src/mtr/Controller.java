@@ -56,9 +56,21 @@ public class Controller {
 	 * @return the name of all MTR stations that are the end point of the lines in the MTR network. 
 	 */
 	String listAllTermini() {
-		mtrs.getStops();
+		String output = "List of Termini: ";
+		int count = 0;
+		for (Stop stop : mtrs.getStops()){
+			if (stop.isTermini()){
+				if (count == 0){
+					output += stop.getName();
+					count++;
+				}
+				else{
+					output += ", " + stop.getName();
+				}
+			}
+		}
 		
-		return "1";
+		return output;
 		
 	}
 	
