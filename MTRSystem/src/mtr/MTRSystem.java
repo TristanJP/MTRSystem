@@ -45,7 +45,9 @@ public class MTRSystem {
 	 * @return	new Station object
 	 */
 	public Station createStation(String stopName) {
-		return new Station(stopName);
+		Station station = new Station(stopName);
+		stops.put(stopName, station);
+		return station;
 	}
 	
 	/**
@@ -56,6 +58,8 @@ public class MTRSystem {
 	public Intersection createIntersection(Stop stop) {
 		Intersection intersection = new Intersection(stop.getName());
 		intersection.addRoute(stop.getRoute());
+		stops.remove(stop.getName());
+		stops.put(intersection.getName(), intersection);
 		return intersection;
 	}
 	
