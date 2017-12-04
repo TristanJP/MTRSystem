@@ -32,10 +32,11 @@ public class MTRSystem {
 	 */
 	private HashMap<String, Route> routes = new HashMap<>();
 	
+	private HashMap<String, Stop> stops = new HashMap<>();
+	
 	/**
 	 * Arraylist containing a list of unique stops in this system, for ensuring linear time operations
 	 */
-	private ArrayList<Stop> stops = new ArrayList<>();
 	
 	
 	public MTRSystem() {
