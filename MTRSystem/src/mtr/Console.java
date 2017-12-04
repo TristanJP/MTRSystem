@@ -1,82 +1,119 @@
+/**
+ * 
+ */
 package mtr;
 
 import java.util.Scanner;
 
+/**
+ * A simple text-based user interface for showing various information about an MTR network.
+ * 
+ * @author S H S Wong, Tristan Perkins
+ * @version 1.2
+ * 
+ * REVISIONS
+ * 1.2 - Changed the controller to shortcut name
+ * 	
+ */
 public class Console {
-	
-	private Scanner keyboard;
-	private boolean run;
 
-	public Console()
-	{
-		//setup scanner
-		keyboard = new Scanner(System.in);
-		System.out.println("MTR System Interface");
-		run = true;
-		optionMenu();
-	}
+	private Controller cont;  
+	private Scanner stdIn;
 	
-	//Option menu to select what to do
-	private void optionMenu()
-	{
-		//run loop
-		while (run)
-		{
-			//Array of options
-			String[] options = {"listLine", "listCon", "listAll", "exit"};
-			//list all options
-			System.out.println("Options:");
-			for (int i = 0; i < options.length; i++)
-			{
-				System.out.println(" - " + options[i]);
-			}
-			//read user input
-			String chosenOption = keyboard.nextLine();
-			//Check if the input is a valid option
-			boolean correctInput = false;
-			for (String opt : options)
-			{
-				if(chosenOption.equals(opt))
-				{
-					correctInput = true;
-				}
-			}
-			//go back to start if option is invalid
-			if (!correctInput)
-			{
-				System.out.println("\nInvalid Option.\n");
-			}
-			else	//If option is valid, continue
-			{
-				System.out.println("\nSelected Option: " + chosenOption + "\n");
-				switch (chosenOption)
-				{
-				case ("exit"):
-					//exit the program
-					System.out.println("Goodbye");
-					run = false;
-					break;
-				case ("listLine"):
-					//list all stations on a line
-					System.out.println("Which line would you like to display?");
-					//get name of line
-					String lineName = keyboard.nextLine();
-					//do stuff
-					break;
-				case ("listCon"):
-					//lists all lines directly connected to the given line
-					System.out.println("Which line would you like to see connections for?");
-					//get name of line
-					String lineConName = keyboard.nextLine();
-					//do stuff
-					break;
-				case ("listAll"):
-					//lists all the lines in the MTR System
-					System.out.println("List of Every Station:");
-					//do stuff
-					break;
-				}
-			}
+	public Console(Controller cont) {
+		
+		this.cont = cont;
+		
+		// Creates a Scanner object for obtaining user input
+		stdIn = new Scanner(System.in);
+		
+		while (true) {
+			displayMenu();
+			getAndProcessUserOption();
 		}
 	}
+
+	/**
+	 * Displays the header of this application and a summary of menu options.
+	 */
+	private void displayMenu() {
+		display(header());
+		display(menu());
+	}
+	
+	/**
+	 * Obtains an user option and processes it.
+	 */
+	private void getAndProcessUserOption() {
+		String command = stdIn.nextLine().trim();
+		switch (command) {
+		case "1" : // Lists all terminus
+			display(cont.listAllTermini());
+			break;
+		case "2" : // Lists all stations in a line
+			display("Lists all stations in a line...");
+			display("Enter the name of the line you'd like to view:");
+			display(cont.listStationsInLine(stdIn.nextLine().trim()));
+			break;
+		case "3" : // Lists all connected lines
+			display("Lists all directly connected lines...");
+			display("Enter the name of the required line:");
+			display(cont.listAllDirectlyConnectedLines(stdIn.nextLine().trim()));
+			break;
+		case "4" : // Finds a path between two stations
+			display("Finds a path between two stations...");
+			display("Enter the name of the start station:");
+			String stationA = stdIn.nextLine().trim();
+			display("Enter the name of the end station:");
+			String stationB = stdIn.nextLine().trim();
+			display(cont.showPathBetween(stationA, stationB));
+			break;
+		case "5" : // Exits the application
+			display("Goodbye!");
+			System.exit(0);
+			break;
+		default : // Not a known command option
+			display(unrecogniseCommandErrorMsg(command));
+		}
+	}
+	
+	/*
+	 * Returns a string representation of a brief title for this application as the header.
+	 * @return	a header
+	 */
+	private static String header() {
+		return "\nMTR Information Centre\n";
+	}
+	
+	/*
+	 * Returns a string representation of the user menu.
+	 * @return	the user menu
+	 */
+	private static String menu() {
+		return "Enter the number associated with your chosen menu option.\n" +
+			   "1: List all termini in the MTR network\n" +
+			   "2: List all stations in a line in the MTR network\n" +
+		       "3: List all lines that are directly connected to a line\n" +
+			   "4: Find a path between two stations\n" +
+			   "5: Exit this application\n";
+	}
+	
+	/*
+	 * Displays the specified info for the user to view.
+	 * @param info	info to be displayed on the screen
+	 */
+	private void display(String info) {
+		System.out.println(info);
+	}
+	
+    /*
+     * Returns an error message for an unrecognised command.
+     * 
+     * @param error the unrecognised command
+     * @return      an error message
+     */
+    private static String unrecogniseCommandErrorMsg(String error) {
+            return String.format("Cannot recognise the given command: %s.%n", error);
+    }
+
 }

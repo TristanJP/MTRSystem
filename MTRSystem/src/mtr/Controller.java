@@ -3,9 +3,15 @@ package mtr;
 import reader.Reader;
 
 /**
- * @author Tristan
- * @version 1.0
+ * Main System Class
  * 
+ * @author Tristan Perkins
+ * @version 1.2
+ * 
+ * REVISIONS
+ * 1.0 - Created controller following Singleton design pattern, added main loop and constructor
+ * 1.1 - Added empty methods to interact with console provided by S H S Wong.
+ * 1.2 - Instantiated Singleton Controller
  */
 
 public class Controller {
@@ -32,11 +38,55 @@ public class Controller {
 	//Main function
 	public static void main(String[] args) {
 				
+		//Make controller instance
+		getCont();
+		
 		//create console
-		cont.console = new Console();
+		cont.console = new Console(cont);
 		//create Reader
 		cont.reader = new Reader("path");
 		//create MTRSystem
 		cont.mtrs = new MTRSystem();
+	}
+	
+	/**
+	 * Lists all termini in this MTR network.
+	 * @return the name of all MTR stations that are the end point of the lines in the MTR network. 
+	 */
+	String listAllTermini() {
+		return "1";
+		
+	}
+	
+	/**
+	 * Lists the stations in their respective order in the specified MTR line.
+	 * @param line	a specified line in the MTR network
+	 * @return	a String representation of all stations in the specified MTR line.
+	 */
+	String listStationsInLine(String line) {
+		return "2";
+		
+	}
+
+	/**
+	 * Lists the name of the line(s) that is/are directly connected with the specified MTR line.
+	 * @param line	a specified line in the MTR network
+	 * @return	a String representation of the name of the required line(s)
+	 */
+	String listAllDirectlyConnectedLines(String line) {
+		return "3";
+		
+	}
+	
+	/**
+	 * Lists a path between the specified stations.
+	 * The path is represented as a sequence of the name of the stations between the specified stations. 
+	 * @param stationA	the name of a station
+	 * @param stationB	the name of another station
+	 * @return	a String representation of a path between the specified stations
+	 */
+	String showPathBetween(String stationA, String stationB) {
+		return "4";
+		
 	}
 }

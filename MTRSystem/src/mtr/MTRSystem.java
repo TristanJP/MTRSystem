@@ -1,7 +1,6 @@
 package mtr;
 
 /**
- * Main system class
  * @author Ollie
  * @version 1.0
  *
