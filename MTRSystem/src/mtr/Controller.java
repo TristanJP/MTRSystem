@@ -25,7 +25,7 @@ public class Controller {
 	
 	//fields
 	private Console console;
-	private MTRSystem mtrs;
+	public MTRSystem mtrs;
 	
 	private Reader reader;
 	
@@ -46,12 +46,20 @@ public class Controller {
 		//Make controller instance
 		getCont();
 		
-		//create console
-		cont.console = new Console(cont);
+		
 		//create MTRSystem
 		cont.mtrs = new MTRSystem();
+		cont.mtrs.tester("top of controller");
 		//create Reader
-		cont.reader = new Reader("path", cont.mtrs);
+		
+		cont.reader = new Reader("MTRsystem_partial.csv", cont.mtrs);
+		cont.reader.read();
+		
+		//create console
+		cont.console = new Console(cont);
+		cont.mtrs.tester("bottom of controller");
+		cont.console.start();
+		
 	}
 	
 	/**

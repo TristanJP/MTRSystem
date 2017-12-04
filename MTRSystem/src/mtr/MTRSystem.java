@@ -29,15 +29,19 @@ public class MTRSystem {
 	 */
 	private HashMap<String, Route> routes = new HashMap<>();
 	
-	
-	
 	/**
 	 * HashMap containing a list of unique stops in this system, for ensuring linear time operations
 	 */
 	private HashMap<String, Stop> stops = new HashMap<>();
 	
+	private int test = 0;
+	
 	public MTRSystem() {
 		
+	}
+	
+	public void tester(String loc) {
+		System.out.println(loc + " - " + test++);
 	}
 	
 	/**

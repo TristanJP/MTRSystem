@@ -56,6 +56,7 @@ public class Reader {
 	 * 
 	 */
 	public void read() {
+		system.tester("top of read");
 		if (!this.path.equals("")) {
 			try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 				String line;
@@ -65,8 +66,19 @@ public class Reader {
 
 					Route newRoute = system.createRoute(routeName);
 					for (int i = 1; i < readLine.length; i++) {
-						doStop(newRoute, i);
+						Stop existingStop = system.getStops().get(readLine[i]);
+						if (existingStop == null) {
+							Stop newStop = new Station(readLine[i]);
+							if (i == 1) { // This also be the first
+								newStop.setIsTermini(true);
+							}
+							newRoute.addStop(newStop);
+						} else {
+							Intersection newStop = system.createIntersection(existingStop);
+							existingStop = newStop;
+						}
 					}
+					System.out.println(newRoute.getStops().toString());
 				}
 			} catch (FileNotFoundException ex) {
 				System.out.println("No file is present at this path, please check your input.");
@@ -74,6 +86,7 @@ public class Reader {
 				System.out.println("Shit went wrong.");
 			}
 		}
+		system.tester("bottom of read");
 	}
 	
 	public void doStop(Route newRoute, int i) {
