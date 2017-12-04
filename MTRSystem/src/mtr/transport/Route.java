@@ -8,7 +8,7 @@ import mtr.Node;
 /**
  * Class representing paths between stations
  * @author Ollie
- * @version 1.3
+ * @version 1.4
  */
 /*
  * REVISIONS
@@ -16,6 +16,7 @@ import mtr.Node;
  * 1.1 - Remove extensions of Route, class becomes only method of representing paths between stations
  * 1.2 - Add getter for stops
  * 1.3 - Add Javadoc
+ * 1.4 - Instantiate stops list
  */
 
 public class Route extends Component {
@@ -31,6 +32,7 @@ public class Route extends Component {
 	 */
 	public Route(String name) {
 		super(name);
+		this.stops = new DoublyLinkedList<>();
 	}
 	
 	/**
@@ -38,7 +40,8 @@ public class Route extends Component {
 	 * @param stop		Stop to add to route
 	 */
 	public void addStop(Stop stop) {
-		this.stops.addElement(new Node(stop));
+		Node<Stop> newNode = new Node<Stop>(stop);
+		this.stops.addElement(newNode);
 	}
 	
 	/**
