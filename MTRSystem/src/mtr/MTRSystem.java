@@ -4,15 +4,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import mtr.transport.Intersection;
-import mtr.transport.Route;
-import mtr.transport.Station;
-import mtr.transport.Stop;
-import mtr.transport.Termini;
+import mtr.transport.*;
 
 /**
  * @author Ollie
- * @version 1.3
+ * @version 1.5
  */
 /*
  * REVISIONS
@@ -20,13 +16,12 @@ import mtr.transport.Termini;
  * 1.1 - Add fields to class
  * 1.2 - Add methods to class, expand on existing methods
  * 1.3 - Add getters for routes and stops
+ * 1.4 - Remove references to Termini
+ * 1.5 - Add return value to createRoute
  */
 
 public class MTRSystem {
-	
-	//create lists of lines or stations
-	//add lines and stations
-	
+
 	/**
 	 * Hashmap containing lines, indexed by their name, representing lines as a linked list
 	 */
@@ -41,15 +36,6 @@ public class MTRSystem {
 	
 	public MTRSystem() {
 		
-	}
-	
-	/**
-	 * Creates a new Termini from a given Stop name
-	 * @param stopName
-	 * @return	new Termini object
-	 */
-	public Termini createTermini(String stopName) {
-		return new Termini(stopName);
 	}
 	
 	/**
@@ -76,8 +62,10 @@ public class MTRSystem {
 	 * Creates a new Route from a given Route name
 	 * @param routeName
 	 */
-	public void createRoute(String routeName) {
-		this.routes.put(routeName, new Route(routeName));
+	public Route createRoute(String routeName) {
+		Route route = new Route(routeName);
+		this.routes.put(routeName, route);
+		return route;
 	}
 	
 	/**

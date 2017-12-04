@@ -45,10 +45,10 @@ public class Controller {
 		
 		//create console
 		cont.console = new Console(cont);
-		//create Reader
-		cont.reader = new Reader("path");
 		//create MTRSystem
 		cont.mtrs = new MTRSystem();
+		//create Reader
+		cont.reader = new Reader("path", cont.mtrs);
 	}
 	
 	/**
@@ -56,7 +56,21 @@ public class Controller {
 	 * @return the name of all MTR stations that are the end point of the lines in the MTR network. 
 	 */
 	String listAllTermini() {
-		return "1";
+		String output = "List of Termini: ";
+		int count = 0;
+		for (Stop stop : mtrs.getStops()){
+			if (stop.isTermini()){
+				if (count == 0){
+					output += stop.getName();
+					count++;
+				}
+				else{
+					output += ", " + stop.getName();
+				}
+			}
+		}
+		
+		return output;
 		
 	}
 	
