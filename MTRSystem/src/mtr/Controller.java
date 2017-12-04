@@ -45,10 +45,10 @@ public class Controller {
 		
 		//create console
 		cont.console = new Console(cont);
-		//create Reader
-		cont.reader = new Reader("path");
 		//create MTRSystem
 		cont.mtrs = new MTRSystem();
+		//create Reader
+		cont.reader = new Reader("path", cont.mtrs);
 	}
 	
 	/**
