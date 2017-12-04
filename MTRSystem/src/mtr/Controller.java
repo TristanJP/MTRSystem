@@ -1,5 +1,5 @@
 package mtr;
-
+import mtr.transport.*;
 import reader.Reader;
 
 /**
@@ -23,6 +23,7 @@ public class Controller {
 	//fields
 	private Console console;
 	private MTRSystem mtrs;
+	
 	private Reader reader;
 	
 	private Controller() {
@@ -65,10 +66,11 @@ public class Controller {
 	 * @return	a String representation of all stations in the specified MTR line.
 	 */
 	String listStationsInLine(String line) {
-		return "2";
 		
+		Route neededLine = mtrs.getRoutes().get(line);
+		String toString = "The stations in this line are" + neededLine.getStops().toString();
+		return toString;
 	}
-
 	/**
 	 * Lists the name of the line(s) that is/are directly connected with the specified MTR line.
 	 * @param line	a specified line in the MTR network
