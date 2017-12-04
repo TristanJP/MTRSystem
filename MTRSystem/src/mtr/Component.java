@@ -4,7 +4,8 @@ package mtr;
  * Class to define shared fields between a number of other classes
  * @author Ollie
  * @version 1.1
- * 
+ */
+/*
  * REVISIONS
  * 1.0 - Created class with constructor and name field
  * 1.1 - Override toString and add getName method

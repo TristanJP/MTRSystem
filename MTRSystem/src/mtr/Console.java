@@ -10,7 +10,8 @@ import java.util.Scanner;
  * 
  * @author S H S Wong, Tristan Perkins
  * @version 1.2
- * 
+ */
+/*
  * REVISIONS
  * 1.2 - Changed the controller to shortcut name
  * 	

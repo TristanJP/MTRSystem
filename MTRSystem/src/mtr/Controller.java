@@ -7,7 +7,8 @@ import reader.Reader;
  * 
  * @author Tristan Perkins
  * @version 1.2
- * 
+ */
+/*
  * REVISIONS
  * 1.0 - Created controller following Singleton design pattern, added main loop and constructor
  * 1.1 - Added empty methods to interact with console provided by S H S Wong.

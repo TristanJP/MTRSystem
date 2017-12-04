@@ -3,7 +3,8 @@ package mtr;
 /**
  * @author Ollie
  * @version 1.2
- * 
+ */
+/*
  * REVISIONS
  * 1.0 - Create class and constructor
  * 1.1 - Add insertElement method
