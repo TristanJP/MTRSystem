@@ -8,7 +8,7 @@ import mtr.transport.*;
 
 /**
  * @author Ollie
- * @version 1.5
+ * @version 1.6
  */
 /*
  * REVISIONS
@@ -18,6 +18,7 @@ import mtr.transport.*;
  * 1.3 - Add getters for routes and stops
  * 1.4 - Remove references to Termini
  * 1.5 - Add return value to createRoute
+ * 1.6 - Change stops to HashMap
  */
 
 public class MTRSystem {
@@ -27,12 +28,12 @@ public class MTRSystem {
 	 */
 	private HashMap<String, Route> routes = new HashMap<>();
 	
-	private HashMap<String, Stop> stops = new HashMap<>();
+	
 	
 	/**
-	 * Arraylist containing a list of unique stops in this system, for ensuring linear time operations
+	 * HashMap containing a list of unique stops in this system, for ensuring linear time operations
 	 */
-	
+	private HashMap<String, Stop> stops = new HashMap<>();
 	
 	public MTRSystem() {
 		
@@ -105,9 +106,9 @@ public class MTRSystem {
 	
 	/**
 	 * Getter for stops
-	 * @return	ArrayList of Stop
+	 * @return	Hashmap of String and Stop
 	 */
-	public ArrayList<Stop> getStops() {
+	public HashMap<String, Stop> getStops() {
 		return this.stops;
 	}
 	
