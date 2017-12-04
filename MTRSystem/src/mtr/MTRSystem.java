@@ -8,7 +8,7 @@ import mtr.transport.*;
 
 /**
  * @author Ollie
- * @version 1.6
+ * @version 1.7
  */
 /*
  * REVISIONS
@@ -19,6 +19,7 @@ import mtr.transport.*;
  * 1.4 - Remove references to Termini
  * 1.5 - Add return value to createRoute
  * 1.6 - Change stops to HashMap
+ * 1.7 - Add Stops field update methods
  */
 
 public class MTRSystem {

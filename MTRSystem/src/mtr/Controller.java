@@ -1,4 +1,6 @@
 package mtr;
+import java.util.Map;
+
 import mtr.transport.*;
 import reader.Reader;
 
@@ -6,13 +8,14 @@ import reader.Reader;
  * Main System Class
  * 
  * @author Tristan Perkins
- * @version 1.2
+ * @version 1.3
  */
 /*
  * REVISIONS
  * 1.0 - Created controller following Singleton design pattern, added main loop and constructor
  * 1.1 - Added empty methods to interact with console provided by S H S Wong.
  * 1.2 - Instantiated Singleton Controller
+ * 1.3 - Update class to reflect HashMap structure in MTRSystem
  */
 
 public class Controller {
@@ -58,14 +61,14 @@ public class Controller {
 	String listAllTermini() {
 		String output = "List of Termini: ";
 		int count = 0;
-		for (Stop stop : mtrs.getStops()){
-			if (stop.isTermini()){
+		for (Map.Entry<String, Stop> stop : mtrs.getStops().entrySet()) {
+			if (stop.getValue().isTermini()){
 				if (count == 0){
-					output += stop.getName();
+					output += stop.getKey();
 					count++;
 				}
 				else{
-					output += ", " + stop.getName();
+					output += ", " + stop.getKey();
 				}
 			}
 		}
