@@ -2,6 +2,12 @@ package mtr;
 
 import reader.Reader;
 
+/**
+ * @author Tristan
+ * @version 1.0
+ * 
+ */
+
 public class Controller {
 	
 	//Singleton Pattern init
