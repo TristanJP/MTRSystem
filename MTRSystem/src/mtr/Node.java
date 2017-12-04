@@ -2,16 +2,18 @@ package mtr;
 
 /**
  * @author Ollie
- * @version 1.0
+ * @version 1.2
  */
 /*
  * REVISIONS
  * 1.0 - Create class and constructor
+ * 1.1 - Add methods
+ * 1.2 - Add abstract type to head and tail
  */
 public class Node<T> {
 	
-	private Node head;
-	private Node tail;
+	private Node<T> head;
+	private Node<T> tail;
 	private T content;
 
 	/**
