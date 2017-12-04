@@ -1,4 +1,4 @@
-package mtr;
+package mtr.transport;
 
 /**
  * Class to define shared fields between a number of other classes

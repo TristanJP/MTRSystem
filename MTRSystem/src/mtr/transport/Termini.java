@@ -1,4 +1,4 @@
-package mtr;
+package mtr.transport;
 
 /**
  * Extension of Stop, declaring itself as a Termini of a line

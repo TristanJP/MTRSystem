@@ -1,6 +1,8 @@
-package mtr;
+package mtr.transport;
 
 import java.util.ArrayList;
+
+import mtr.DoublyLinkedList;
 
 /**
  * Class representing paths between stations
