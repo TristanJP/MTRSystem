@@ -15,8 +15,23 @@ import java.util.ArrayList;
 
 public abstract class Stop extends Component {
 	
+	private boolean isTermini;
+	
 	public Stop(String name) {
+		this(name, false);
+	}
+	
+	public Stop(String name, boolean isTermini) {
 		super(name);
+		this.isTermini = isTermini;
+	}
+	
+	public void setIsTermini(boolean isTermini) {
+		this.isTermini = isTermini;
+	}
+	
+	public boolean isTermini() {
+		return this.isTermini;
 	}
 	
 	public Route getRoute() { return null; }
