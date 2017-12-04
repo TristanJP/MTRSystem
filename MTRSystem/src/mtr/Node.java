@@ -19,6 +19,8 @@ public class Node<T> {
 	 */
 	public Node(T content) {
 		this.content = content;
+		this.head = null;
+		this.tail = null;
 	}
 	
 	public Node<T> getPrevious() {
@@ -38,4 +40,7 @@ public class Node<T> {
 		this.head = newHead;
 	}
 
+	public String toString() {
+		return this.content.toString();
+	}
 }

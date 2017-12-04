@@ -3,6 +3,7 @@ package mtr.transport;
 import java.util.ArrayList;
 
 import mtr.DoublyLinkedList;
+import mtr.Node;
 
 /**
  * Class representing paths between stations
@@ -21,6 +22,10 @@ public class Route extends Component {
 	
 	public Route(String name) {
 		super(name);
+	}
+	
+	public void addStop(Stop stop) {
+		this.stops.addElement(new Node(stop));
 	}
 
 }

@@ -26,8 +26,9 @@ public class DoublyLinkedList<T> {
 	}
 	
 	public void addElement(Node<T> element) {
-		front.setNext(element);
+		this.front.setNext(element);
 		this.front = element;
+		this.count += 1;
 	}
 	
 	public void insertElement(Node<T> nextElement, Node<T> newElement) { // Will insert before next element
@@ -71,6 +72,16 @@ public class DoublyLinkedList<T> {
 	
 	public Node<T> getRearElement() {
 		return this.rear;
+	}
+	
+	public String toString() {
+		String returnString = "";
+		Node<T> currentNode = this.front;
+		while (currentNode != null) {
+			returnString += currentNode.toString();
+			currentNode = currentNode.getNext();
+		}
+		return returnString;
 	}
 
 }
