@@ -11,16 +11,13 @@ package mtr;
 
 public class MTRSystem {
 	
-	//create reader
 	//create lists of lines or stations
 	//add lines and stations
 	
-	
-	//Main function
-	public static void main(String[] args) {
+	public void MTRSystem() {
 		
-		//create console
-		Console console = new Console();
 	}
+	
+	
 
 }
