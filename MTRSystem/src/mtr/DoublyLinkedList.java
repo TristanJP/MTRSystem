@@ -2,13 +2,15 @@ package mtr;
 
 /**
  * @author Ollie
- * @version 1.2
+ * @version 1.4
  */
 /*
  * REVISIONS
  * 1.0 - Create class and constructor
  * 1.1 - Add insertElement method
  * 1.2 - Add remove methods and checks
+ * 1.3 - Fix addElement method
+ * 1.4 - Add first element handler to addElement
  */
 public class DoublyLinkedList<T> {
 	
@@ -26,8 +28,16 @@ public class DoublyLinkedList<T> {
 	}
 	
 	public void addElement(Node<T> element) {
-		this.front.setNext(element);
-		this.front = element;
+		if (front == null) { // This be the first
+			this.rear = element;
+			this.front = element;
+			this.front.setPrevious(this.rear);
+			this.rear.setNext(this.front);
+		} else {
+			this.front.setNext(element);
+			element.setPrevious(this.front);
+			this.front = element;
+		}
 		this.count += 1;
 	}
 	
@@ -76,7 +86,7 @@ public class DoublyLinkedList<T> {
 	
 	public String toString() {
 		String returnString = "";
-		Node<T> currentNode = this.front;
+		Node<T> currentNode = this.rear;
 		while (currentNode != null) {
 			returnString += currentNode.toString() + ((currentNode.getNext() != null)?", ":"");
 			currentNode = currentNode.getNext();
