@@ -78,7 +78,7 @@ public class DoublyLinkedList<T> {
 		String returnString = "";
 		Node<T> currentNode = this.front;
 		while (currentNode != null) {
-			returnString += currentNode.toString();
+			returnString += currentNode.toString() + ((currentNode.getNext() != null)?", ":"");
 			currentNode = currentNode.getNext();
 		}
 		return returnString;
