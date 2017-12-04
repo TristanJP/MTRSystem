@@ -27,5 +27,9 @@ public class Route extends Component {
 	public void addStop(Stop stop) {
 		this.stops.addElement(new Node(stop));
 	}
+	
+	public DoublyLinkedList<Stop> getStops() {
+		return this.stops;
+	}
 
 }
