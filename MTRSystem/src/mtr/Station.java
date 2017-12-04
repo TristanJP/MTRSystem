@@ -15,11 +15,21 @@ import java.util.ArrayList;
 
 public class Station extends Stop {
 	
+	private Route route;
+	
 	/**
 	 * 
 	 * @param name
 	 */
 	public Station(String name) {
 		super(name);
+	}
+	
+	public Route getRoute() {
+		return this.route;
+	}
+	
+	public void setRoute(Route route) {
+		this.route = route;
 	}
 }

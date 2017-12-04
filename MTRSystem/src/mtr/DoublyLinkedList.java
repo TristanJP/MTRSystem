@@ -10,7 +10,7 @@ package mtr;
  * 1.1 - Add insertElement method
  * 1.2 - Add remove methods and checks
  */
-public abstract class DoublyLinkedList<T> {
+public class DoublyLinkedList<T> {
 	
 	protected Node<T> rear;
 	protected Node<T> front;

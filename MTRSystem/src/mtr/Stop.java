@@ -14,10 +14,10 @@ import java.util.ArrayList;
  */
 
 public abstract class Stop extends Component {
-
-	protected ArrayList<Route> routes;
 	
 	public Stop(String name) {
 		super(name);
 	}
+	
+	public Route getRoute() { return null; }
 }
