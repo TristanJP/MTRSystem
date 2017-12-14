@@ -15,20 +15,31 @@ import java.util.ArrayList;
 
 public class Station extends Stop {
 	
+	/**
+	 * The route this station is on
+	 */
 	private Route route;
 	
 	/**
-	 * 
-	 * @param name
+	 * The Constructor for the Station
+	 * @param name The name of the Station
 	 */
 	public Station(String name) {
 		super(name);
 	}
 	
+	/**
+	 * Gets the route this station is on
+	 * @return The route this station is on
+	 */
 	public Route getRoute() {
 		return this.route;
 	}
 	
+	/**
+	 * Sets the route this station is on
+	 * @param route The route that this station is on
+	 */
 	public void setRoute(Route route) {
 		this.route = route;
 	}

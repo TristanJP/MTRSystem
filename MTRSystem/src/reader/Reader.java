@@ -31,17 +31,17 @@ import mtr.transport.Stop;
 public class Reader {
 
 	/**
-	 * 
+	 * Field to store the path to the .csv file being read
 	 */
 	private String path = "";
 
 	/**
-	 * 
+	 * Field to store reference to the MTRsystem it is creating
 	 */
 	private MTRSystem system;
 
 	/**
-	 * 
+	 * Field to store the line being read as a String[]
 	 */
 	private String[] readLine;
 
@@ -56,7 +56,8 @@ public class Reader {
 	}
 
 	/**
-	 * 
+	 * Reads the file at the path given. Generates an MTRSystem based on the file given by the path
+	 * @return MTRSystem made based on the .csv file given by the path
 	 */
 	public MTRSystem read() {
 		if (!this.path.equals("")) {
@@ -130,52 +131,6 @@ public class Reader {
 					system.addRoute(route);
 					System.out.println(route.getStops().toString());
 				}
-					
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						/*
-						
-						Stop existingStop = system.getStops().get(readLine[i]);
-						if (existingStop == null) {
-							Stop newStop = new Station(readLine[i]);
-							if ((i == 1) || (i == (readLine.length - 1))) { // This also be the first / last
-								newStop.setIsTermini(true);
-							}
-							newRoute.addStop(newStop);
-							system.addStation((Station) newStop);
-						} else {
-							if (existingStop instanceof Station) {
-								newRoute.removeStop(existingStop);
-								Intersection newStop = system.createIntersection(existingStop);
-								existingStop = newStop;
-							} else {
-								((Intersection) existingStop).addRoute(newRoute);
-							}
-							system.addIntersection((Intersection)existingStop);
-						}
-						*/
-					
-					//system.addRoute(newRoute);
-			
 				
 			} catch (FileNotFoundException ex) {
 				System.out.println("No file is present at this path, please check your input.");
@@ -185,22 +140,4 @@ public class Reader {
 		}
 		return this.system;
 	}
-	
-	public void doStop(Route newRoute, int i) {
-		Stop existingStop = system.getStops().get(readLine[i]);
-		if (existingStop == null) {
-			Stop newStop = new Station(readLine[i]);
-			newRoute.addStop(newStop);
-		} else {
-			Intersection newStop = system.createIntersection(existingStop);
-			existingStop = newStop;
-		}
-	}
-	
-	/*
-	public static void main(String args[]) {
-		Reader reader = new Reader("MTRsystem_partial.csv", new MTRSystem());
-		reader.read();
-	}
-	*/
 }

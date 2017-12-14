@@ -19,15 +19,30 @@ import java.util.Scanner;
  */
 public class Console {
 
+	/**
+	 * Field to store the instance of the Controller being used
+	 */
 	private Controller cont;
+	/**
+	 * Field to store the instance of the Scanner being used
+	 */
 	private Scanner stdIn;
 
+	/**
+	 * Constructor for the Console Object
+	 * @param cont Reference to the instance of the Controller that made the Console
+	 */
 	public Console(Controller cont) {
+		//stores reference to the controller
 		this.cont = cont;
-		// Creates a Scanner object for obtaining user input
+		// Creates a Scanner object for obtaining user input and stores it in a field
 		stdIn = new Scanner(System.in);
 	}
 
+	/**
+	 * Method to start up the Console Application. Runs until exit command is given.
+	 * Displays the Menu -> Gets the user input and processes -> repeat 
+	 */
 	public void start() {
 		while (true) {
 			displayMenu();
@@ -70,10 +85,7 @@ public class Console {
 			//String stationB = stdIn.nextLine().trim();
 			display(cont.showPathBetween());//stationA, stationB));
 			break;
-		case "5":
-			display("Lists all lines in the MTR network");
-			display(cont.listAllStations());
-		case "6": // Exits the application
+		case "5": // Exits the application
 			display("Goodbye!");
 			System.exit(0);
 			break;
@@ -101,7 +113,7 @@ public class Console {
 		return "Enter the number associated with your chosen menu option.\n"
 				+ "1: List all termini in the MTR network\n" + "2: List all stations in a line in the MTR network\n"
 				+ "3: List all lines that are directly connected to a line\n" + "4: Find a path between two stations\n"
-				+ "5: Lists all stations in the MTR network\n" + "6: Exit this application\n";
+				+ "5: Exit this application\n";
 	}
 
 	/**
