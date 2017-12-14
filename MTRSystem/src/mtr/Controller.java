@@ -49,7 +49,6 @@ public class Controller {
 		
 		//create MTRSystem
 		cont.mtrs = new MTRSystem();
-		cont.mtrs.tester("top of controller");
 		//create Reader
 		
 		cont.reader = new Reader("MTRsystem_partial.csv", cont.mtrs);
@@ -57,7 +56,6 @@ public class Controller {
 		
 		//create console
 		cont.console = new Console(cont);
-		cont.mtrs.tester("bottom of controller");
 		cont.console.start();
 		
 	}
@@ -93,7 +91,7 @@ public class Controller {
 	String listStationsInLine(String line) {
 		
 		Route neededLine = mtrs.getRoutes().get(line);
-		String toString = "The stations in this line are" + neededLine.getStops().toString();
+		String toString = ((neededLine != null)?"The stations in this line are " + neededLine.getStops().toString():"This line does not exist.");
 		return toString;
 	}
 	/**

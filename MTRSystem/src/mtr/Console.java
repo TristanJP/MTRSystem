@@ -22,11 +22,9 @@ public class Console {
 	private Scanner stdIn;
 
 	public Console(Controller cont) {
-		cont.mtrs.tester("top of console");
 		this.cont = cont;
 		// Creates a Scanner object for obtaining user input
 		stdIn = new Scanner(System.in);
-		cont.mtrs.tester("bottom of console");
 	}
 
 	public void start() {

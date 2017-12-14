@@ -56,7 +56,6 @@ public class Reader {
 	 * 
 	 */
 	public void read() {
-		system.tester("top of read");
 		if (!this.path.equals("")) {
 			try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 				String line;
@@ -86,7 +85,6 @@ public class Reader {
 				System.out.println("Shit went wrong.");
 			}
 		}
-		system.tester("bottom of read");
 	}
 	
 	public void doStop(Route newRoute, int i) {
