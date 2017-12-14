@@ -55,7 +55,7 @@ public class Controller {
 		//create Reader
 
 		cont.reader = new Reader("MTRsystem_partial.csv", cont.mtrs);
-		cont.reader.read();
+		cont.mtrs = cont.reader.read();
 
 		//create console
 		cont.console = new Console(cont);
