@@ -70,10 +70,7 @@ public class Console {
 			//String stationB = stdIn.nextLine().trim();
 			display(cont.showPathBetween());//stationA, stationB));
 			break;
-		case "5":
-			display("Lists all lines in the MTR network");
-			display(cont.listAllStations());
-		case "6": // Exits the application
+		case "5": // Exits the application
 			display("Goodbye!");
 			System.exit(0);
 			break;
@@ -101,7 +98,7 @@ public class Console {
 		return "Enter the number associated with your chosen menu option.\n"
 				+ "1: List all termini in the MTR network\n" + "2: List all stations in a line in the MTR network\n"
 				+ "3: List all lines that are directly connected to a line\n" + "4: Find a path between two stations\n"
-				+ "5: Lists all stations in the MTR network\n" + "6: Exit this application\n";
+				+ "5: Exit this application\n";
 	}
 
 	/**

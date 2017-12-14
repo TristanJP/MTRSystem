@@ -167,14 +167,4 @@ public class Controller {
 		}
 		return path;
 	}
-
-	/**
-	 * Lists all stations in the MTR system. No order
-	 * @return a String representation of all stations in the MTR system
-	 * @return
-	 */
-	public String listAllStations() {
-
-		return "5";
-	}
 }
