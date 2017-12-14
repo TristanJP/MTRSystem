@@ -140,20 +140,4 @@ public class Reader {
 		}
 		return this.system;
 	}
-	
-//	/**
-//	 * 
-//	 * @param newRoute
-//	 * @param i
-//	 */
-//	public void doStop(Route newRoute, int i) {
-//		Stop existingStop = system.getStops().get(readLine[i]);
-//		if (existingStop == null) {
-//			Stop newStop = new Station(readLine[i]);
-//			newRoute.addStop(newStop);
-//		} else {
-//			Intersection newStop = system.createIntersection(existingStop);
-//			existingStop = newStop;
-//		}
-//	}
 }
