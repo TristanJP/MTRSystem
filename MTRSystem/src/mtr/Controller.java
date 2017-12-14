@@ -1,4 +1,5 @@
 package mtr;
+import java.util.HashMap;
 import java.util.Map;
 
 import mtr.transport.*;
@@ -49,6 +50,7 @@ public class Controller {
 		
 		//create MTRSystem
 		cont.mtrs = new MTRSystem();
+		cont.mtrs.tester("top of controller");
 		//create Reader
 		
 		cont.reader = new Reader("MTRsystem_partial.csv", cont.mtrs);
@@ -56,6 +58,7 @@ public class Controller {
 		
 		//create console
 		cont.console = new Console(cont);
+		cont.mtrs.tester("bottom of controller");
 		cont.console.start();
 		
 	}
@@ -91,16 +94,27 @@ public class Controller {
 	String listStationsInLine(String line) {
 		
 		Route neededLine = mtrs.getRoutes().get(line);
-		String toString = ((neededLine != null)?"The stations in this line are " + neededLine.getStops().toString():"This line does not exist.");
+		String toString = "The stations in this line are" + neededLine.getStops().toString();
 		return toString;
 	}
+	
 	/**
 	 * Lists the name of the line(s) that is/are directly connected with the specified MTR line.
 	 * @param line	a specified line in the MTR network
 	 * @return	a String representation of the name of the required line(s)
 	 */
 	String listAllDirectlyConnectedLines(String line) {
-		return "3"; 
+		String output = "";
+		HashMap<String, Stop> intersections =  new HashMap<String, Stop>();
+		for (Map.Entry<String, Stop> stop : mtrs.getStops().entrySet()) {
+			if (stop instanceof Intersection) {
+				intersections.put(stop.getKey(), stop.getValue());
+			}
+		}
+		for (Map.Entry<String, Stop> stop : intersections.entrySet()) {
+			output += stop.getKey();
+		}
+		return output; 
 		
 	}
 	
@@ -114,5 +128,15 @@ public class Controller {
 	String showPathBetween(String stationA, String stationB) {
 		return "4";
 		
+	}
+
+	/**
+	 * Lists all stations in the MTR system. No order
+	 * @return a String representation of all stations in the MTR system
+	 * @return
+	 */
+	public String listAllStations() {
+		
+		return "5";
 	}
 }
