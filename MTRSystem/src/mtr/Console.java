@@ -10,10 +10,11 @@ import java.util.Scanner;
  * MTR network.
  * 
  * @author S H S Wong, Tristan Perkins
- * @version 1.2
+ * @version 1.3
  */
 /*
  * REVISIONS 1.2 - Changed the controller to shortcut name
+ * 1.3 - Added method call to method for displaying all the lines in the MTR network, moved exit to 6th
  * 
  */
 public class Console {
@@ -100,7 +101,7 @@ public class Console {
 		return "Enter the number associated with your chosen menu option.\n"
 				+ "1: List all termini in the MTR network\n" + "2: List all stations in a line in the MTR network\n"
 				+ "3: List all lines that are directly connected to a line\n" + "4: Find a path between two stations\n"
-				+ "5: Lists all stations in the MTR network\n" + "5: Exit this application\n";
+				+ "5: Lists all stations in the MTR network\n" + "6: Exit this application\n";
 	}
 
 	/**

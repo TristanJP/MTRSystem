@@ -9,7 +9,7 @@ import reader.Reader;
  * Main System Class
  * 
  * @author Tristan Perkins
- * @version 1.3
+ * @version 1.4
  */
 /*
  * REVISIONS
@@ -17,6 +17,7 @@ import reader.Reader;
  * 1.1 - Added empty methods to interact with console provided by S H S Wong.
  * 1.2 - Instantiated Singleton Controller
  * 1.3 - Update class to reflect HashMap structure in MTRSystem
+ * 1.4 - Added method to display all lines in the MTR network
  */
 
 public class Controller {
@@ -109,7 +110,10 @@ public class Controller {
 		Route originalRoute = mtrs.getRoutes().get(line);
 		if (originalRoute != null) {		
 			for (Stop stop : originalRoute.getStops()) {
-				output += stop.getValue.shit;
+				if (stop instanceof Intersection) {
+					for (Route route : ((Intersection) stop).getRoutes())
+						routes.put(route.getName(), route);
+				}
 			}
 		}
 		else{
