@@ -78,7 +78,7 @@ public class Console {
 		}
 	}
 
-	/*
+	/**
 	 * Returns a string representation of a brief title for this application as
 	 * the header.
 	 * 
@@ -88,7 +88,7 @@ public class Console {
 		return "\nMTR Information Centre\n";
 	}
 
-	/*
+	/**
 	 * Returns a string representation of the user menu.
 	 * 
 	 * @return the user menu
@@ -100,7 +100,7 @@ public class Console {
 				+ "5: Exit this application\n";
 	}
 
-	/*
+	/**
 	 * Displays the specified info for the user to view.
 	 * 
 	 * @param info info to be displayed on the screen
@@ -109,7 +109,7 @@ public class Console {
 		System.out.println(info);
 	}
 
-	/*
+	/**
 	 * Returns an error message for an unrecognised command.
 	 * 
 	 * @param error the unrecognised command
