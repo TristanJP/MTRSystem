@@ -18,6 +18,7 @@ public class Intersection extends Stop {
 
 	public Intersection(String name) {
 		super(name);
+		this.routes = new ArrayList<>();
 	}
 
 	public ArrayList<Route> getRoutes() {
@@ -26,5 +27,9 @@ public class Intersection extends Stop {
 
 	public void addRoute(Route route) {
 		this.routes.add(route);
+	}
+	
+	public void removeRoute(Route route) {
+		this.routes.remove(route);
 	}
 }
