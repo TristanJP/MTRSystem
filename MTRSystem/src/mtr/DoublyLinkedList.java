@@ -118,6 +118,17 @@ public class DoublyLinkedList<T> implements Iterable<T>{
 
 		return currentNode;
 	}
+	
+	public Node<T> findNode(T content) {
+		Node<T> currentNode = rear;
+		while (currentNode.getNext() != null) {
+			currentNode = currentNode.getNext();
+			if (currentNode.getContent() == content) {
+				return currentNode;
+			}
+		}
+		return null;
+	}
 
 	@Override
 	public DoublyIterator<T> iterator() {
