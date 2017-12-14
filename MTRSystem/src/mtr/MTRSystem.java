@@ -35,14 +35,11 @@ public class MTRSystem {
 	 */
 	private HashMap<String, Stop> stops = new HashMap<>();
 	
-	private int test = 0;
-	
+	/** Constructor for MTR system
+	 * 
+	 */
 	public MTRSystem() {
 		
-	}
-	
-	public void tester(String loc) {
-		System.out.println(loc + " - " + test++);
 	}
 	
 	/**

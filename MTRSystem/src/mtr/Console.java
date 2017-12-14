@@ -19,15 +19,30 @@ import java.util.Scanner;
  */
 public class Console {
 
+	/**
+	 * Field to store the instance of the Controller being used
+	 */
 	private Controller cont;
+	/**
+	 * Field to store the instance of the Scanner being used
+	 */
 	private Scanner stdIn;
 
+	/**
+	 * Constructor for the Console Object
+	 * @param cont Reference to the instance of the Controller that made the Console
+	 */
 	public Console(Controller cont) {
+		//stores reference to the controller
 		this.cont = cont;
-		// Creates a Scanner object for obtaining user input
+		// Creates a Scanner object for obtaining user input and stores it in a field
 		stdIn = new Scanner(System.in);
 	}
 
+	/**
+	 * Method to start up the Console Application. Runs until exit command is given.
+	 * Displays the Menu -> Gets the user input and processes -> repeat 
+	 */
 	public void start() {
 		while (true) {
 			displayMenu();
