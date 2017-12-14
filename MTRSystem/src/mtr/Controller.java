@@ -155,12 +155,12 @@ public class Controller {
 	public String showPathBetween() {
 		
 		Route route = mtrs.getRoutes().get("Tung Chung Line");
-		Stack<Stop> routes = new Stack<>();
+		Stack<Stop> routes;
 		Stop origin = mtrs.getStops().get("Sunny Bay");
 		Stop destination = mtrs.getStops().get("Mei Foo");
 		String path = "";
-		routes.push(origin);
-		RouteFinder finder = new RouteFinder(routes, route, origin, destination);
+		RouteFinder finder = new RouteFinder(route, origin, destination);
+		routes = finder.getStack();
 		while(!routes.isEmpty()) {
 			Stop toPrint = routes.pop();
 			System.out.println(toPrint);
