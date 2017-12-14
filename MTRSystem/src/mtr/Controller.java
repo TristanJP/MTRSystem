@@ -51,7 +51,6 @@ public class Controller {
 
 		//create MTRSystem
 		cont.mtrs = new MTRSystem();
-		cont.mtrs.tester("top of controller");
 		//create Reader
 
 		cont.reader = new Reader("MTRsystem_partial.csv", cont.mtrs);
@@ -59,7 +58,6 @@ public class Controller {
 
 		//create console
 		cont.console = new Console(cont);
-		cont.mtrs.tester("bottom of controller");
 		cont.console.start();
 
 	}
@@ -105,18 +103,33 @@ public class Controller {
 	 * @return	a String representation of the name of the required line(s)
 	 */
 	String listAllDirectlyConnectedLines(String line) {
+		boolean firstLinePrinted = false;
 		String output = "";
 		HashMap<String, Route> routes =  new HashMap<>();
 		Route originalRoute = mtrs.getRoutes().get(line);
-		if (originalRoute != null) {		
-			for (Stop stop : originalRoute.getStops()) {
+		if (originalRoute != null) {	
+			DoublyIterator iterator = originalRoute.getStops().iterator();
+			while (iterator.hasNext()) {
+				Stop stop = ((Node<Stop>)iterator.next()).getContent();
 				if (stop instanceof Intersection) {
 					for (Route route : ((Intersection) stop).getRoutes())
 						routes.put(route.getName(), route);
 				}
 			}
-		}
-		else{
+			for (Map.Entry<String, Route> entry : routes.entrySet()) {
+				String nextLine = entry.getKey();
+				if (nextLine.equals(line)) {
+					nextLine = "";
+				}
+				if (firstLinePrinted) {
+					output += ", ";
+				}
+				if (!nextLine.equals("")) {
+					firstLinePrinted = true;
+				}
+				output += nextLine;
+			}
+		} else {
 			output = "Unrecognised line name";
 		}
 		return output; 
