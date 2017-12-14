@@ -94,7 +94,7 @@ public class Controller {
 	String listStationsInLine(String line) {
 
 		Route neededLine = mtrs.getRoutes().get(line);
-		String toString = "The stations in this line are" + neededLine.getStops().toString();
+		String toString = "The stations in this line are:\n" + neededLine.getStops().toString();
 		return toString;
 	}
 
@@ -159,12 +159,12 @@ public class Controller {
 		Stop origin = mtrs.getStops().get("Sunny Bay");
 		Stop destination = mtrs.getStops().get("Mei Foo");
 		String path = "";
-		RouteFinder finder = new RouteFinder(route, origin, destination);
-		routes = finder.getStack();
-		while(!routes.isEmpty()) {
-			Stop toPrint = routes.pop();
-			System.out.println(toPrint);
-		}
+//		RouteFinder finder = new RouteFinder(route, origin, destination);
+//		routes = finder.getStack();
+//		while(!routes.isEmpty()) {
+//			Stop toPrint = routes.pop();
+//			System.out.println(toPrint);
+//		}
 		return path;
 	}
 }

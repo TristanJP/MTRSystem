@@ -45,8 +45,8 @@ public class Route extends Component {
 	}
 	
 	/**
-	 * Getter for stops
-	 * @return			DoublyLinkedList of stops
+	 * Gets all the stops on this route
+	 * @return	DoublyLinkedList of stops on this route
 	 */
 	public DoublyLinkedList<Stop> getStops() {
 		return this.stops;
