@@ -73,6 +73,10 @@ public class DoublyIterator<T> implements ListIterator<T> {
 		
 	}
 	
+	public T get() {
+		return (T)this.currentNode;
+	}
+	
 	
 
 }

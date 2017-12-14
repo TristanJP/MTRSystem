@@ -107,10 +107,16 @@ public class Controller {
 		String output = "";
 		HashMap<String, Route> routes =  new HashMap<>();
 		Route originalRoute = mtrs.getRoutes().get(line);
-		if (originalRoute != null) {	
+		if (originalRoute != null) {
+			output = line + " is directly connected to:\n";
 			DoublyIterator iterator = originalRoute.getStops().iterator();
+			Stop stop = null;
 			while (iterator.hasNext()) {
-				Stop stop = ((Node<Stop>)iterator.next()).getContent();
+				if (stop == null) {
+					stop = ((Node<Stop>)iterator.get()).getContent();
+				} else {
+					stop = ((Node<Stop>)iterator.next()).getContent();
+				}
 				if (stop instanceof Intersection) {
 					for (Route route : ((Intersection) stop).getRoutes())
 						routes.put(route.getName(), route);
@@ -122,12 +128,13 @@ public class Controller {
 					nextLine = "";
 				}
 				if (firstLinePrinted) {
-					output += ", ";
+					output += ",\n";
 				}
 				if (!nextLine.equals("")) {
 					firstLinePrinted = true;
+					output += "\t";
 				}
-				output += nextLine;
+				output += "" + nextLine;
 			}
 		} else {
 			output = "Unrecognised line name";
