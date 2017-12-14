@@ -15,7 +15,7 @@ import mtr.transport.Stop;
 /**
  * Class to parse CSV file given in constructor
  * @author Ollie
- * @version 1.0
+ * @version 1.7
  */
 /*
  * REVISIONS
@@ -25,6 +25,8 @@ import mtr.transport.Stop;
  * 1.3 - Squish da bugs
  * 1.4 - Add Javadoc
  * 1.5 - Meaningful console messages
+ * 1.6 - Discovered bug with reading, routes were not updated with stops. Refactored into two loops, adding stops first then routes
+ * 1.7 - Squish da bugs
  */
 public class Reader {
 

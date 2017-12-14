@@ -8,7 +8,7 @@ import mtr.transport.*;
 
 /**
  * @author Ollie
- * @version 1.7
+ * @version 1.8
  */
 /*
  * REVISIONS
@@ -20,6 +20,7 @@ import mtr.transport.*;
  * 1.5 - Add return value to createRoute
  * 1.6 - Change stops to HashMap
  * 1.7 - Add Stops field update methods
+ * 1.8 - Refactor method names to match project requirements
  */
 
 public class MTRSystem {

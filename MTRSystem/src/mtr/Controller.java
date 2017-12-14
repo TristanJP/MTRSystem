@@ -1,6 +1,7 @@
 package mtr;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Stack;
 
 import mtr.transport.*;
 import reader.Reader;
@@ -150,9 +151,21 @@ public class Controller {
 	 * @param stationB	the name of another station
 	 * @return	a String representation of a path between the specified stations
 	 */
-	String showPathBetween(String stationA, String stationB) {
-		return "4";
-
+	//String showPathBetween(String stationA, String stationB) {
+	public String showPathBetween() {
+		
+		Route route = mtrs.getRoutes().get("Tung Chung Line");
+		Stack<Stop> routes = new Stack<>();
+		Stop origin = mtrs.getStops().get("Sunny Bay");
+		Stop destination = mtrs.getStops().get("Mei Foo");
+		String path = "";
+		routes.push(origin);
+		RouteFinder finder = new RouteFinder(routes, route, origin, destination);
+		while(!routes.isEmpty()) {
+			Stop toPrint = routes.pop();
+			System.out.println(toPrint);
+		}
+		return path;
 	}
 
 	/**

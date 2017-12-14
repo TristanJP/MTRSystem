@@ -63,12 +63,12 @@ public class Console {
 			display(cont.listAllDirectlyConnectedLines(stdIn.nextLine().trim()));
 			break;
 		case "4": // Finds a path between two stations
-			display("Finds a path between two stations...");
-			display("Enter the name of the start station:");
-			String stationA = stdIn.nextLine().trim();
-			display("Enter the name of the end station:");
-			String stationB = stdIn.nextLine().trim();
-			display(cont.showPathBetween(stationA, stationB));
+			//display("Finds a path between two stations...");
+			//display("Enter the name of the start station:");
+			//String stationA = stdIn.nextLine().trim();
+			//display("Enter the name of the end station:");
+			//String stationB = stdIn.nextLine().trim();
+			display(cont.showPathBetween());//stationA, stationB));
 			break;
 		case "5":
 			display("Lists all lines in the MTR network");
