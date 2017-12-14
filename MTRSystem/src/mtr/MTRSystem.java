@@ -45,37 +45,40 @@ public class MTRSystem {
 	}
 	
 	/**
-	 * Creates a new Station from a given Stop name
+	 * Puts station into hashmap
 	 * @param stopName
 	 * @return	new Station object
 	 */
-	public Station createStation(String stopName) {
-		Station station = new Station(stopName);
-		stops.put(stopName, station);
-		return station;
+	public void addStation(Station station) {
+		stops.put(station.getName(), station);
 	}
 	
 	/**
-	 * Creates a new Intersection from an existing Stop.
+	 * Creates a new Intersection from a given Stop
 	 * @param stop
 	 * @return	new Intersection object
 	 */
 	public Intersection createIntersection(Stop stop) {
 		Intersection intersection = new Intersection(stop.getName());
 		intersection.addRoute(stop.getRoute());
-		stops.remove(stop.getName());
-		stops.put(intersection.getName(), intersection);
 		return intersection;
 	}
 	
 	/**
-	 * Creates a new Route from a given Route name
+	 * Adds an Intersection to the stops hashmap
+	 * @param intersection
+	 */
+	public void addIntersection(Intersection intersection) {
+		stops.remove(intersection.getName());
+		stops.put(intersection.getName(), intersection);
+	}
+	
+	/**
+	 * Adds a route to the routes hashmap
 	 * @param routeName
 	 */
-	public Route createRoute(String routeName) {
-		Route route = new Route(routeName);
-		this.routes.put(routeName, route);
-		return route;
+	public void addRoute(Route route) {
+		this.routes.put(route.getName(), route);
 	}
 	
 	/**
