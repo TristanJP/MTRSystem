@@ -20,20 +20,20 @@ import reader.Reader;
  */
 
 public class Controller {
-	
+
 	//Singleton Pattern init
 	private static Controller cont = null;
-	
+
 	//fields
 	private Console console;
 	public MTRSystem mtrs;
-	
+
 	private Reader reader;
-	
+
 	private Controller() {
-		
+
 	}
-	
+
 	public static Controller getCont() {
 		if (cont == null){
 			cont = new Controller();
@@ -43,26 +43,26 @@ public class Controller {
 
 	//Main function
 	public static void main(String[] args) {
-				
+
 		//Make controller instance
 		getCont();
-		
-		
+
+
 		//create MTRSystem
 		cont.mtrs = new MTRSystem();
 		cont.mtrs.tester("top of controller");
 		//create Reader
-		
+
 		cont.reader = new Reader("MTRsystem_partial.csv", cont.mtrs);
 		cont.reader.read();
-		
+
 		//create console
 		cont.console = new Console(cont);
 		cont.mtrs.tester("bottom of controller");
 		cont.console.start();
-		
+
 	}
-	
+
 	/**
 	 * Lists all termini in this MTR network.
 	 * @return the name of all MTR stations that are the end point of the lines in the MTR network. 
@@ -81,23 +81,23 @@ public class Controller {
 				}
 			}
 		}
-		
+
 		return output;
-		
+
 	}
-	
+
 	/**
 	 * Lists the stations in their respective order in the specified MTR line.
 	 * @param line	a specified line in the MTR network
 	 * @return	a String representation of all stations in the specified MTR line.
 	 */
 	String listStationsInLine(String line) {
-		
+
 		Route neededLine = mtrs.getRoutes().get(line);
 		String toString = "The stations in this line are" + neededLine.getStops().toString();
 		return toString;
 	}
-	
+
 	/**
 	 * Lists the name of the line(s) that is/are directly connected with the specified MTR line.
 	 * @param line	a specified line in the MTR network
@@ -105,19 +105,20 @@ public class Controller {
 	 */
 	String listAllDirectlyConnectedLines(String line) {
 		String output = "";
-		HashMap<String, Stop> intersections =  new HashMap<String, Stop>();
-		for (Map.Entry<String, Stop> stop : mtrs.getStops().entrySet()) {
-			if (stop instanceof Intersection) {
-				intersections.put(stop.getKey(), stop.getValue());
+		HashMap<String, Route> routes =  new HashMap<>();
+		Route originalRoute = mtrs.getRoutes().get(line);
+		if (originalRoute != null) {		
+			for (Stop stop : originalRoute.getStops()) {
+				output += stop.getValue.shit;
 			}
 		}
-		for (Map.Entry<String, Stop> stop : intersections.entrySet()) {
-			output += stop.getKey();
+		else{
+			output = "Unrecognised line name";
 		}
 		return output; 
-		
+
 	}
-	
+
 	/**
 	 * Lists a path between the specified stations.
 	 * The path is represented as a sequence of the name of the stations between the specified stations. 
@@ -127,7 +128,7 @@ public class Controller {
 	 */
 	String showPathBetween(String stationA, String stationB) {
 		return "4";
-		
+
 	}
 
 	/**
@@ -136,7 +137,7 @@ public class Controller {
 	 * @return
 	 */
 	public String listAllStations() {
-		
+
 		return "5";
 	}
 }
