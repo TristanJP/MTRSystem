@@ -120,8 +120,8 @@ public class DoublyLinkedList<T> implements Iterable<T>{
 	}
 
 	@Override
-	public Iterator<T> iterator() {
-		return new DoublyIterator(front, count);
+	public DoublyIterator<T> iterator() {
+		return new DoublyIterator(rear, count);
 	}
 
 }

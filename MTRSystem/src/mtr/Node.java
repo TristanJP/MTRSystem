@@ -45,4 +45,8 @@ public class Node<T> {
 	public String toString() {
 		return this.content.toString();
 	}
+	
+	public T getContent() {
+		return this.content;
+	}
 }
